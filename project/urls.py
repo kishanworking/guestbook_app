@@ -24,6 +24,9 @@ urlpatterns = [
     path('todo/', include('todo.urls')),
     path('guestbook/',  include("guestbook_app.urls")),
     
+    path('profile/', include('urlexample.urls')),
+
+
     path('', include('accounts_app.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
 

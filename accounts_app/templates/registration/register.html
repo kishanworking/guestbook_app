@@ -5,7 +5,26 @@
 {% block title %} signup home{% endblock title %}
 
 {% block content %}
-<div class="container mt-5">
+
+<h1>Registration page</h1>
+<form method="post" action="{% url 'register' %}">
+  {% csrf_token %}
+
+  {% if form.errors %}
+  <p>There are errors in the forms</p>
+  {% endif %}
+
+  {{ form }}
+
+  <input type="submit" value="Register">
+
+
+
+</form>
+
+
+
+{% comment %} <div class="container mt-5">
     <div class="row justify-content-center">
       <div class="col-md-6">
         <div class="card">
@@ -43,7 +62,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> {% endcomment %}
 
   {% endblock content %}
 

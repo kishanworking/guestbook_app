@@ -4,13 +4,18 @@ from django.views.decorators.http import require_POST
 from .models import Todo
 from .forms import TodoForm, NewTodoForm
 
+
+import datetime 
+
+
 def index(request):
     todo_list = Todo.objects.order_by('id')
 
     # form = TodoForm()
     newtodoform = NewTodoForm()
 
-    context = {'todo_list' : todo_list, 'form' : newtodoform}
+    mydate = datetime.datetime.now()
+    context = {'todo_list' : todo_list, 'form' : newtodoform, 'mydate': mydate}
 
     return render(request, 'todo/index.html', context)
 
